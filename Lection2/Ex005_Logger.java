@@ -1,4 +1,4 @@
-package Lesson_02;
+package Lection2;
 import java.io.IOException;
 import java.util.logging.*;
 
