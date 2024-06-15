@@ -1,0 +1,10 @@
+.git
+Lection1
+Lection2
+log.txt
+log.txt.lck
+Pract1
+README.md
+Sem1
+Sem2
+text.txt
