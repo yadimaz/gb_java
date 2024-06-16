@@ -1,7 +1,5 @@
 package Pract2;
 
-import netscape.javascript.JSObject;
-
 public class Task1 {
     public static void main(String[] args) {
         String QUERY = "";
@@ -28,7 +26,7 @@ public class Task1 {
             String[] filters = PARAMS.split(",");
             for (int i = 0; i < filters.length; i++) {
                 String[] fil = filters[i].split(":");
-                //System.out.printf("%s %s\n", fil[0].trim(), fil[1].trim());
+                System.out.printf("%s %s\n", fil[0].trim(), fil[1].trim());
                 if (!fil[1].trim().equals("null")) {
                     if (i > 0) {
                         sb.append(" and ");

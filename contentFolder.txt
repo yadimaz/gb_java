@@ -1,9 +1,12 @@
 .git
+arr.txt
+contentFolder.txt
 Lection1
 Lection2
 log.txt
 log.txt.lck
 Pract1
+Pract2
 README.md
 Sem1
 Sem2
