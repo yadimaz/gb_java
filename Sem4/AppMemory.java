@@ -1,5 +1,9 @@
 package Sem4;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
 /*
  * Реализовать консольное приложение, которое:
 1. Принимает от пользователя и “запоминает” строки.
