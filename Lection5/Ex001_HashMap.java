@@ -10,7 +10,7 @@ public class Ex001_HashMap {
         db.put(null, "!null");
         System.out.println(db); // {null=!null, 1=один, 2=два}
         System.out.println(db.get(44));
-        // db.remove(null);
+        db.remove(null);
         System.out.println(db); // {1=один, 2=два}
         System.out.println(db.containsValue("один")); // true
         System.out.println(db.containsValue(1)); // false
