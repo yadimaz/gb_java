@@ -20,5 +20,9 @@ public class Ex004_TreeMap {
         tMap.put(2, "два");
         System.out.println(tMap);
         // {1=один, 2=два, 3=три, 4=четыре, 6=шесть}
+        tMap.put(2, "два");
+        System.out.println(tMap.descendingKeySet());
+        tMap.put(2, "два");
+        System.out.println(tMap.descendingMap());
     }
 }
