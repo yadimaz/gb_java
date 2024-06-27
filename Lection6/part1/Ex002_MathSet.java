@@ -1,4 +1,4 @@
-package Lesson_06.part1;
+package Lection6.part1;
 import java.util.*;
 public class Ex002_MathSet {
     public static void main(String[] args) {
