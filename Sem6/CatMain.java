@@ -6,10 +6,12 @@ import java.util.Set;
 
 public class CatMain {
     public static void main(String[] args) {
+        Cat cat0 = new Cat("Барсик", 2017, "Серый", "Дворовый");
         Cat cat1 = new Cat("Васька", 2011, "Черный", "Иванов Иван");
         Cat cat2 = new Cat("Мурзик", 2020, "Белый", "Петров Петр");
         Cat cat3 = new Cat("Беляш", 2015, "Трехцветный", "Малятин Александр");
 
+        System.out.println(cat0 + System.lineSeparator());
         System.out.println(cat1 + System.lineSeparator());
         System.out.println(cat2 + System.lineSeparator());
         System.out.println(cat3 + System.lineSeparator());
