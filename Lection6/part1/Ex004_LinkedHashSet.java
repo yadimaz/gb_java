@@ -9,6 +9,7 @@ public class Ex004_LinkedHashSet {
         a.add(28);
         System.out.println(a); // [1, 7, 2, 3, 6, 4, 5, 28]
         System.out.println(b); // [13, 3, 17, 7, 2, 11, 5]
+
     }
 
 }

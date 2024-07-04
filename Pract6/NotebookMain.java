@@ -1,5 +1,6 @@
 package Pract6;
 
+import javax.swing.*;
 import java.util.*;
 
 public class NotebookMain {
@@ -13,23 +14,41 @@ public class NotebookMain {
         Notebook ntb4 = new Notebook("ASUS", "Vivobook Go E1504FA-BQ585", 1.63, 15.6, "AMD Ryzen 3 7320U", 8, 256, "без ОС",
                 "черный");
 
-
         Set<Notebook> ntbks = new HashSet<>(Arrays.asList(ntb1, ntb2, ntb3, ntb4));
 
-        for (Notebook ntbk : ntbks) {
-            System.out.println(ntbk);
-            System.out.println();
-        }
+//        for (Notebook ntbk : ntbks) {
+//            System.out.println(ntbk);
+//            System.out.println();
+//        }
 
-        Set<Double> diag = new HashSet<>();
-        for (Notebook ntbk : ntbks) {
-            diag.add(ntbk.getScreenDiag());
+//        Set<Double> diag = new HashSet<>();
+//        for (Notebook ntbk : ntbks) {
+//            diag.add(ntbk.getScreenDiag());
+//        }
+//        System.out.println(diag);
+
+        Map<Integer, String> filters = new HashMap<>();
+        filters.put(1, "weight");
+        filters.put(2, "screenDiag");
+        filters.put(3, "ram");
+        filters.put(4, "hdd");
+
+        System.out.println(filters);
+
+        Map<Integer, String> fltrs = new HashMap<>();
+        fltrs.put(1, "1.5");
+        fltrs.put(2, "15.7");
+
+        for(Notebook notebook : ntbks) {
+            String weigth;
+            weigth = fltrs.get(1);
+
+            //double screenDiag = new Double.parseDouble(fltrs.get(2));
+            if (notebook.getWeight() >= Double.parseDouble(fltrs.get(1)) && notebook.getScreenDiag() >= Double.parseDouble(fltrs.get(2))) {
+                System.out.println(notebook + "\n");
+            }
         }
-        System.out.println(diag);
     }
 
-    Map<Integer, String> filters = new HashMap<Integer, String>();
-    filters.put(1, "brand");
-    filters.put(2,"screenDiag");
 
 }
