@@ -34,15 +34,15 @@ public class Notebook {
 
     public Notebook(String brand, String model, double weight, double screenDiag, String cpu, int memory, int hdd, String os,
             String color) {
-        this.brand = brand;
-        this.model = model;
+        this.brand = brand.toUpperCase();
+        this.model = model.toUpperCase();
         this.weight = weight;
         this.screenDiag = screenDiag;
         this.cpu = cpu;
         this.memory = memory;
         this.hdd = hdd;
-        this.os = os;
-        this.color = color;
+        this.os = os.toUpperCase();
+        this.color = color.toUpperCase();
     }
 
     public String getBrand() {
@@ -82,11 +82,11 @@ public class Notebook {
     }
 
     public void setBrand(String brand) {
-        this.brand = brand;
+        this.brand = brand.toUpperCase();
     }
 
     public void setModel(String model) {
-        this.model = model;
+        this.model = model.toUpperCase();
     }
 
     public void setWeight(double weight) {
@@ -98,7 +98,7 @@ public class Notebook {
     }
 
     public void setScreenDiag(String cpu) {
-        this.cpu = cpu;
+        this.cpu = cpu.toUpperCase();
     }
 
     public void setMemory(int memory) {
@@ -110,11 +110,11 @@ public class Notebook {
     }
 
     public void setOs(String os) {
-        this.os = os;
+        this.os = os.toUpperCase();
     }
 
     public void setColor(String color) {
-        this.color = color;
+        this.color = color.toUpperCase();
     }
 
     @Override
@@ -135,7 +135,7 @@ public class Notebook {
 
     @Override
     public String toString() {
-        String res = brand + " " + model + System.lineSeparator() 
+        String res = brand + " " + model + System.lineSeparator()
         + "Диагональ: " + screenDiag + " дюймов" + System.lineSeparator()
         + "Процессор: " + cpu + System.lineSeparator()
         + "Память: " + memory + " Гб" + System.lineSeparator()

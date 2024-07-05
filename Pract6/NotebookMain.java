@@ -16,39 +16,98 @@ public class NotebookMain {
 
         Set<Notebook> ntbks = new HashSet<>(Arrays.asList(ntb1, ntb2, ntb3, ntb4));
 
-//        for (Notebook ntbk : ntbks) {
-//            System.out.println(ntbk);
-//            System.out.println();
-//        }
+        Map<Integer, String> fltrs = getFilters();
+        Set<Notebook> ntbksFiltered = search(ntbks,fltrs);
 
-//        Set<Double> diag = new HashSet<>();
-//        for (Notebook ntbk : ntbks) {
-//            diag.add(ntbk.getScreenDiag());
-//        }
-//        System.out.println(diag);
-
-        Map<Integer, String> filters = new HashMap<>();
-        filters.put(1, "weight");
-        filters.put(2, "screenDiag");
-        filters.put(3, "ram");
-        filters.put(4, "hdd");
-
-        System.out.println(filters);
-
-        Map<Integer, String> fltrs = new HashMap<>();
-        fltrs.put(1, "1.5");
-        fltrs.put(2, "15.7");
-
-        for(Notebook notebook : ntbks) {
-            String weigth;
-            weigth = fltrs.get(1);
-
-            //double screenDiag = new Double.parseDouble(fltrs.get(2));
-            if (notebook.getWeight() >= Double.parseDouble(fltrs.get(1)) && notebook.getScreenDiag() >= Double.parseDouble(fltrs.get(2))) {
-                System.out.println(notebook + "\n");
+        if (ntbksFiltered.isEmpty()) System.out.println("По данным параметрам >" + fltrs +"< ничего не найдено");
+        else {
+            //System.out.println(ntbksFiltered);
+            Iterator note = ntbksFiltered.iterator();
+            while (note.hasNext()) {
+                System.out.println(note.next() + "\n");
             }
+
         }
+
     }
 
+    public static Set<Notebook> search (Set<Notebook> ntbks, Map<Integer, String> fltrs) {
+        Set<Notebook> ntbksFiltered = new HashSet<>();
+
+        Double fltrsWeigth  = Double.parseDouble(fltrs.get(1));
+        Double fltrsScreen  = Double.parseDouble(fltrs.get(2));
+        Integer fltrsMem  = Integer.parseInt(fltrs.get(3));
+        Integer fltrsHdd  = Integer.parseInt(fltrs.get(4));
+
+        System.out.println("\nВот что нашлось: \n");
+        for(Notebook notebook : ntbks) {
+            if (notebook.getWeight() >= fltrsWeigth && notebook.getScreenDiag() >= fltrsScreen &&
+                    notebook.getMemory() >= fltrsMem && notebook.gethdd() >= fltrsHdd) {
+                if(fltrs.containsKey(5)) {
+                    if (notebook.getColor().equals(fltrs.get(5).toUpperCase())) ntbksFiltered.add(notebook);
+                }
+                else ntbksFiltered.add(notebook);
+            }
+        }
+
+        return ntbksFiltered;
+    }
+
+    public static Map<Integer, String> getFilters () {
+        Map<Integer, String> filters = new HashMap<>();
+
+        Map<Integer, String> menu = new HashMap<>();
+        menu.put(1, "Вес ноутбука, в кг.");
+        menu.put(2, "Диагональ матрицы, в дюймах");
+        menu.put(3, "Объём оперативной памяти, в Гб");
+        menu.put(4, "Объём жесткого диска, в Гб");
+        menu.put(5, "Цвет корпуса");
+
+        Scanner scanner = new Scanner(System.in);
+
+        boolean flag = true;
+        while (flag) {
+            System.out.println("1 - Вес\n2 - Диагональ матрицы\n" +
+                    "3 - Объём памяти\n4 - Размер жесткого диска\n5 - Цвет\nВведите цифру, соответствующую необходимому критерию: \n");
+            int filterKey = scanner.nextInt();
+
+            // Запрос
+            System.out.println("filterkey: " + filterKey);
+            if (menu.containsKey(filterKey)) {
+                System.out.println("Введите значение " + menu.get(filterKey));
+                String filterValue = scanner.next();
+                filters.put(filterKey,filterValue);
+            }
+            else System.out.println("Неверное значение категории!!!");
+
+            // Вывод текущих значений фильтра
+            System.out.println("Текущие значения фильтра: " + filters);
+
+            // Запрос на окончание цикла
+            System.out.println("Задать следующий критерий поиска? 1 - да, 2 - нет");
+            int oneTwo = scanner.nextInt();
+            if (oneTwo == 2) flag = false;
+        }
+
+        // Заполнение отсутствующих парамеров 0
+        for (int i = 1; i < menu.size(); i++) {
+            if (!filters.containsKey(i)) {
+                filters.put(i, "0");
+            } else {
+                try {
+                    Double.parseDouble(filters.get(i));
+            }
+                catch (Exception e) {
+                    filters.put(i, "0");
+                }
+            }
+        }
+
+        System.out.println("Финальные значения фильтра: " + filters);
+
+        scanner.close();
+        return filters;
+
+    }
 
 }
