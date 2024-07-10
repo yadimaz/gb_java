@@ -1,4 +1,4 @@
-package Lesson_07.Ex003;
+package Java_2_oop.Lesson1.Ex003;
 
 
 /** 

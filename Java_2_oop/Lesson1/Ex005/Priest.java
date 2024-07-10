@@ -1,4 +1,4 @@
-package Lesson_07.Ex005;
+package Java_2_oop.Lesson1.Ex005;
 
 
 import java.util.Random;
