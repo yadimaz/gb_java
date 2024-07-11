@@ -13,7 +13,7 @@ public class Program {
         System.out.println(b);
         // Point2D b = new Point2D(0, 10);
 
-        var dis = Point2D.distance(a, b);
+        double dis = Point2D.distance(a, b);
         System.out.println(dis);
     }
 }

@@ -17,6 +17,7 @@ public class Point2D {
         y = valueY;
     }
 
+
     public Point2D(int value) {
         this(value, value);
     }
